@@ -32,17 +32,18 @@ namespace AdministrationPanel
             {
                 DataTable dt = new DataTable();
                 dt.Load(dr);
-                dataGridView1.DataSource = dt;
+                //dataGridView1.DataSource = dt;
             }
-            dataGridView1.Columns[0].HeaderText = "ID";
-            dataGridView1.Columns[1].HeaderText = "Name";
-            dataGridView1.Columns[2].HeaderText = "Quantity";
-            dataGridView1.Columns[3].HeaderText = "Price";
-            dataGridView1.Columns[4].HeaderText = "Category";
+            //dataGridView1.Columns[0].HeaderText = "ID";
+            //dataGridView1.Columns[1].HeaderText = "Name";
+            //dataGridView1.Columns[2].HeaderText = "Quantity";
+            //dataGridView1.Columns[3].HeaderText = "Price";
+            //dataGridView1.Columns[4].HeaderText = "Category";
             comm.Dispose();
             conn.Close();
         }
         private Button currentButton;
+        private Form activeForm;
 
         private void ActivateButton(object btnSender)
         {
@@ -53,7 +54,7 @@ namespace AdministrationPanel
                 {
                     DisableButton();
                     currentButton = (Button)btnSender;
-                    currentButton.BackColor = ColorTranslator.FromHtml("#6C6EA0");
+                    currentButton.BackColor = ColorTranslator.FromHtml("#255064");
                     currentButton.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
                     currentButton.Font = new System.Drawing.Font("Myriad Pro", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
@@ -73,25 +74,42 @@ namespace AdministrationPanel
             }
         }
 
+        private void OpenChildButton(Form childForm, object btnSender)
+        {
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+            ActivateButton(btnSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            this.desktopPanel.Controls.Add(childForm);
+            this.desktopPanel.Tag = childForm;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            childForm.BringToFront();
+            childForm.Show();
+            label1.Text = childForm.Text;
+        }
+
         private void shoppingButton_Click(object sender, EventArgs e)
         {
-            sctnName.Text = shoppingButton.Text;
-            ActivateButton(sender);
+            OpenChildButton(new Forms.CartForm(), sender);
         }
 
         private void allProductsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildButton(new Forms.AllItemsForm(), sender);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildButton(new Forms.AddForm(), sender);
         }
 
         private void statsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildButton(new Forms.StatisticsForm(), sender);
         }
     }
 }
