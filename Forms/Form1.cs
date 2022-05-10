@@ -18,6 +18,8 @@ namespace AdministrationPanel
         public Form1()
         {
             InitializeComponent();
+
+            //Delete window borders
             this.Text = String.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -28,31 +30,16 @@ namespace AdministrationPanel
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=ProductDatabase;User Id=postgres;Password=1234");
-            conn.Open();
-            NpgsqlCommand comm = new NpgsqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select * from product";
-            NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.HasRows)
-            {
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                //dataGridView1.DataSource = dt;
-            }
-            //dataGridView1.Columns[0].HeaderText = "ID";
-            //dataGridView1.Columns[1].HeaderText = "Name";
-            //dataGridView1.Columns[2].HeaderText = "Quantity";
-            //dataGridView1.Columns[3].HeaderText = "Price";
-            //dataGridView1.Columns[4].HeaderText = "Category";
-            comm.Dispose();
-            conn.Close();
         }
+
+        //variables
         private Button currentButton;
         private Form activeForm;
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
-        private void ActivateButton(object btnSender)
+        //Section activation method which is changing button color and font size if its chosen
+        private void ActivateButton(object btnSender) 
         {
             
             if (btnSender != null)
@@ -68,6 +55,7 @@ namespace AdministrationPanel
             }
         }
 
+        //Section deactivation method which is changing button color and font size of previous active button to normal
         private void DisableButton()
         {
             foreach (Control previousBtn in panel1.Controls)
@@ -81,6 +69,7 @@ namespace AdministrationPanel
             }
         }
 
+        //Method that opens child form inside panel, to switch between them inside one window
         private void OpenChildButton(Form childForm, object btnSender)
         {
             if(activeForm != null)
@@ -92,13 +81,14 @@ namespace AdministrationPanel
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
             childForm.AutoScroll = true;
-            this.desktopPanel.Controls.Add(childForm);
+            this.panelDesktop1.Controls.Add(childForm);
             childForm.FormBorderStyle = FormBorderStyle.None;
-            this.desktopPanel.Tag = childForm;
+            this.panelDesktop1.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
+        //Navigation buttons actions
         private void shoppingButton_Click(object sender, EventArgs e)
         {
             sctnName.Text = "Cart";
@@ -128,9 +118,8 @@ namespace AdministrationPanel
         }
 
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
+        
+        //Make possible moving and resizing window without border
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]

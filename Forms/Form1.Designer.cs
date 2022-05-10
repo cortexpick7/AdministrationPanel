@@ -30,6 +30,8 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.statsButton = new System.Windows.Forms.Button();
+            this.desktopPanel = new System.Windows.Forms.Panel();
+            this.placeholderBegin = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.allProductsButton = new System.Windows.Forms.Button();
             this.shoppingButton = new System.Windows.Forms.Button();
@@ -40,18 +42,18 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.sctnName = new System.Windows.Forms.Label();
-            this.desktopPanel = new System.Windows.Forms.Panel();
-            this.placeholderBegin = new System.Windows.Forms.Label();
+            this.panelDesktop1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.desktopPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.desktopPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(199)))), ((int)(((byte)(244)))));
             this.panel1.Controls.Add(this.statsButton);
+            this.panel1.Controls.Add(this.desktopPanel);
             this.panel1.Controls.Add(this.addButton);
             this.panel1.Controls.Add(this.allProductsButton);
             this.panel1.Controls.Add(this.shoppingButton);
@@ -82,6 +84,30 @@
             this.statsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.statsButton.UseVisualStyleBackColor = false;
             this.statsButton.Click += new System.EventHandler(this.statsButton_Click);
+            // 
+            // desktopPanel
+            // 
+            this.desktopPanel.BackColor = System.Drawing.Color.White;
+            this.desktopPanel.Controls.Add(this.placeholderBegin);
+            this.desktopPanel.Location = new System.Drawing.Point(220, 50);
+            this.desktopPanel.MinimumSize = new System.Drawing.Size(960, 547);
+            this.desktopPanel.Name = "desktopPanel";
+            this.desktopPanel.Size = new System.Drawing.Size(964, 547);
+            this.desktopPanel.TabIndex = 2;
+            // 
+            // placeholderBegin
+            // 
+            this.placeholderBegin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.placeholderBegin.AutoSize = true;
+            this.placeholderBegin.Font = new System.Drawing.Font("Harlow Solid Italic", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderBegin.ForeColor = System.Drawing.Color.Gray;
+            this.placeholderBegin.Location = new System.Drawing.Point(346, 234);
+            this.placeholderBegin.Name = "placeholderBegin";
+            this.placeholderBegin.Size = new System.Drawing.Size(274, 81);
+            this.placeholderBegin.TabIndex = 1;
+            this.placeholderBegin.Text = "Welcome";
             // 
             // addButton
             // 
@@ -184,17 +210,19 @@
             // 
             this.btnMinimize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BackgroundImage = global::AdministrationPanel.Properties.Resources.minimize1;
             this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Location = new System.Drawing.Point(864, 12);
+            this.btnMinimize.Font = new System.Drawing.Font("Russo One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Location = new System.Drawing.Point(893, 9);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(25, 25);
             this.btnMinimize.TabIndex = 3;
+            this.btnMinimize.Text = "_";
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
@@ -202,17 +230,19 @@
             // 
             this.btnMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundImage = global::AdministrationPanel.Properties.Resources.maximize1;
             this.btnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Location = new System.Drawing.Point(895, 12);
+            this.btnMaximize.Font = new System.Drawing.Font("Russo One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMaximize.ForeColor = System.Drawing.Color.White;
+            this.btnMaximize.Location = new System.Drawing.Point(915, 12);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(25, 25);
             this.btnMaximize.TabIndex = 2;
+            this.btnMaximize.Text = "O";
             this.btnMaximize.UseVisualStyleBackColor = false;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
@@ -220,17 +250,19 @@
             // 
             this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BackgroundImage = global::AdministrationPanel.Properties.Resources.close1;
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(926, 12);
+            this.btnClose.Font = new System.Drawing.Font("Russo One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(936, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 25);
             this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -247,30 +279,13 @@
             this.sctnName.TabIndex = 0;
             this.sctnName.Text = "label1";
             // 
-            // desktopPanel
+            // panelDesktop1
             // 
-            this.desktopPanel.BackColor = System.Drawing.Color.White;
-            this.desktopPanel.Controls.Add(this.placeholderBegin);
-            this.desktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.desktopPanel.Location = new System.Drawing.Point(220, 0);
-            this.desktopPanel.MinimumSize = new System.Drawing.Size(960, 547);
-            this.desktopPanel.Name = "desktopPanel";
-            this.desktopPanel.Size = new System.Drawing.Size(964, 597);
-            this.desktopPanel.TabIndex = 2;
-            // 
-            // placeholderBegin
-            // 
-            this.placeholderBegin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.placeholderBegin.AutoSize = true;
-            this.placeholderBegin.Font = new System.Drawing.Font("Harlow Solid Italic", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderBegin.ForeColor = System.Drawing.Color.Gray;
-            this.placeholderBegin.Location = new System.Drawing.Point(346, 234);
-            this.placeholderBegin.Name = "placeholderBegin";
-            this.placeholderBegin.Size = new System.Drawing.Size(274, 81);
-            this.placeholderBegin.TabIndex = 1;
-            this.placeholderBegin.Text = "Welcome";
+            this.panelDesktop1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop1.Location = new System.Drawing.Point(220, 50);
+            this.panelDesktop1.Name = "panelDesktop1";
+            this.panelDesktop1.Size = new System.Drawing.Size(964, 547);
+            this.panelDesktop1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -278,8 +293,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1184, 597);
+            this.Controls.Add(this.panelDesktop1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.desktopPanel);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(113)))), ((int)(((byte)(103)))));
             this.MinimumSize = new System.Drawing.Size(900, 500);
@@ -287,12 +302,12 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.desktopPanel.ResumeLayout(false);
+            this.desktopPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.desktopPanel.ResumeLayout(false);
-            this.desktopPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -313,6 +328,7 @@
         private System.Windows.Forms.Button btnMinimize;
         public System.Windows.Forms.Panel desktopPanel;
         private System.Windows.Forms.Label placeholderBegin;
+        private System.Windows.Forms.Panel panelDesktop1;
     }
 }
 
