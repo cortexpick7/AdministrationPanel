@@ -176,8 +176,9 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(220, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(960, 50);
+            this.panel4.Size = new System.Drawing.Size(964, 50);
             this.panel4.TabIndex = 0;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // btnMinimize
             // 
@@ -190,11 +191,12 @@
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Location = new System.Drawing.Point(860, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(864, 12);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(25, 25);
             this.btnMinimize.TabIndex = 3;
             this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnMaximize
             // 
@@ -207,11 +209,12 @@
             this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Location = new System.Drawing.Point(891, 12);
+            this.btnMaximize.Location = new System.Drawing.Point(895, 12);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(25, 25);
             this.btnMaximize.TabIndex = 2;
             this.btnMaximize.UseVisualStyleBackColor = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
             // btnClose
             // 
@@ -224,11 +227,12 @@
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(922, 12);
+            this.btnClose.Location = new System.Drawing.Point(926, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 25);
             this.btnClose.TabIndex = 1;
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // sctnName
             // 
@@ -237,7 +241,7 @@
             this.sctnName.BackColor = System.Drawing.Color.Transparent;
             this.sctnName.Font = new System.Drawing.Font("Ponter S", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sctnName.ForeColor = System.Drawing.Color.White;
-            this.sctnName.Location = new System.Drawing.Point(445, 12);
+            this.sctnName.Location = new System.Drawing.Point(447, 12);
             this.sctnName.Name = "sctnName";
             this.sctnName.Size = new System.Drawing.Size(65, 27);
             this.sctnName.TabIndex = 0;
@@ -245,23 +249,24 @@
             // 
             // desktopPanel
             // 
-            this.desktopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.desktopPanel.BackColor = System.Drawing.Color.White;
             this.desktopPanel.Controls.Add(this.placeholderBegin);
-            this.desktopPanel.Location = new System.Drawing.Point(220, 50);
+            this.desktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.desktopPanel.Location = new System.Drawing.Point(220, 0);
+            this.desktopPanel.MinimumSize = new System.Drawing.Size(960, 547);
             this.desktopPanel.Name = "desktopPanel";
-            this.desktopPanel.Size = new System.Drawing.Size(960, 547);
+            this.desktopPanel.Size = new System.Drawing.Size(964, 597);
             this.desktopPanel.TabIndex = 2;
             // 
             // placeholderBegin
             // 
-            this.placeholderBegin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.placeholderBegin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.placeholderBegin.AutoSize = true;
             this.placeholderBegin.Font = new System.Drawing.Font("Harlow Solid Italic", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeholderBegin.ForeColor = System.Drawing.Color.Gray;
-            this.placeholderBegin.Location = new System.Drawing.Point(344, 234);
+            this.placeholderBegin.Location = new System.Drawing.Point(346, 234);
             this.placeholderBegin.Name = "placeholderBegin";
             this.placeholderBegin.Size = new System.Drawing.Size(274, 81);
             this.placeholderBegin.TabIndex = 1;
@@ -272,11 +277,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1180, 597);
-            this.Controls.Add(this.desktopPanel);
+            this.ClientSize = new System.Drawing.Size(1184, 597);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.desktopPanel);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(113)))), ((int)(((byte)(103)))));
+            this.MinimumSize = new System.Drawing.Size(900, 500);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

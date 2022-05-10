@@ -21,5 +21,10 @@ namespace AdministrationPanel.Forms
         {
 
         }
+        private Form activeForm;
+      
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
