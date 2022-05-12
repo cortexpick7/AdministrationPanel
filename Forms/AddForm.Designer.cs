@@ -30,14 +30,14 @@
         {
             this.productNameTB = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.priceTB = new System.Windows.Forms.TextBox();
-            this.quantityTB = new System.Windows.Forms.TextBox();
-            this.categories = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.categories = new System.Windows.Forms.ComboBox();
+            this.quantityTB = new System.Windows.Forms.TextBox();
+            this.priceTB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.productNameTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.productNameTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productNameTB.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.productNameTB.ForeColor = System.Drawing.Color.White;
+            this.productNameTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
             this.productNameTB.Location = new System.Drawing.Point(71, 41);
             this.productNameTB.Name = "productNameTB";
             this.productNameTB.Size = new System.Drawing.Size(171, 23);
@@ -73,97 +73,6 @@
             this.panel1.Size = new System.Drawing.Size(315, 344);
             this.panel1.TabIndex = 4;
             // 
-            // priceTB
-            // 
-            this.priceTB.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.priceTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.priceTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.priceTB.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.priceTB.ForeColor = System.Drawing.Color.White;
-            this.priceTB.Location = new System.Drawing.Point(71, 98);
-            this.priceTB.Name = "priceTB";
-            this.priceTB.Size = new System.Drawing.Size(171, 23);
-            this.priceTB.TabIndex = 1;
-            this.priceTB.TextChanged += new System.EventHandler(this.priceTB_TextChanged);
-            // 
-            // quantityTB
-            // 
-            this.quantityTB.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.quantityTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.quantityTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.quantityTB.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.quantityTB.ForeColor = System.Drawing.Color.White;
-            this.quantityTB.Location = new System.Drawing.Point(71, 157);
-            this.quantityTB.Name = "quantityTB";
-            this.quantityTB.Size = new System.Drawing.Size(171, 23);
-            this.quantityTB.TabIndex = 2;
-            this.quantityTB.TextChanged += new System.EventHandler(this.quantityTB_TextChanged);
-            // 
-            // categories
-            // 
-            this.categories.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.categories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.categories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.categories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categories.Font = new System.Drawing.Font("Myriad Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categories.FormattingEnabled = true;
-            this.categories.Items.AddRange(new object[] {
-            "Add new..."});
-            this.categories.Location = new System.Drawing.Point(71, 216);
-            this.categories.Name = "categories";
-            this.categories.Size = new System.Drawing.Size(171, 28);
-            this.categories.TabIndex = 3;
-            this.categories.SelectedIndexChanged += new System.EventHandler(this.categories_SelectedIndexChanged);
-            this.categories.TextUpdate += new System.EventHandler(this.categories_TextUpdate);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
-            this.label1.Location = new System.Drawing.Point(67, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 23);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Product name";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
-            this.label2.Location = new System.Drawing.Point(67, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 23);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Price";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
-            this.label3.Location = new System.Drawing.Point(67, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 23);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Quantity in stock";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
-            this.label4.Location = new System.Drawing.Point(67, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 23);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Category";
-            // 
             // createButton
             // 
             this.createButton.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -180,6 +89,101 @@
             this.createButton.TabIndex = 8;
             this.createButton.Text = "Create new item";
             this.createButton.UseVisualStyleBackColor = false;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.label4.Location = new System.Drawing.Point(67, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 23);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Category";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.label3.Location = new System.Drawing.Point(67, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 23);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Quantity in stock";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.label2.Location = new System.Drawing.Point(67, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 23);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Price";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.label1.Location = new System.Drawing.Point(67, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 23);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Product name";
+            // 
+            // categories
+            // 
+            this.categories.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.categories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.categories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categories.Font = new System.Drawing.Font("Myriad Pro", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.categories.FormattingEnabled = true;
+            this.categories.Items.AddRange(new object[] {
+            "Add new..."});
+            this.categories.Location = new System.Drawing.Point(71, 216);
+            this.categories.Name = "categories";
+            this.categories.Size = new System.Drawing.Size(171, 28);
+            this.categories.TabIndex = 3;
+            this.categories.SelectedIndexChanged += new System.EventHandler(this.categories_SelectedIndexChanged);
+            this.categories.TextUpdate += new System.EventHandler(this.categories_TextUpdate);
+            // 
+            // quantityTB
+            // 
+            this.quantityTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.quantityTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.quantityTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.quantityTB.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.quantityTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.quantityTB.Location = new System.Drawing.Point(71, 157);
+            this.quantityTB.Name = "quantityTB";
+            this.quantityTB.Size = new System.Drawing.Size(171, 23);
+            this.quantityTB.TabIndex = 2;
+            this.quantityTB.TextChanged += new System.EventHandler(this.quantityTB_TextChanged);
+            this.quantityTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTB_KeyPress);
+            // 
+            // priceTB
+            // 
+            this.priceTB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.priceTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
+            this.priceTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.priceTB.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Bold);
+            this.priceTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            this.priceTB.Location = new System.Drawing.Point(71, 98);
+            this.priceTB.Name = "priceTB";
+            this.priceTB.Size = new System.Drawing.Size(171, 23);
+            this.priceTB.TabIndex = 1;
+            this.priceTB.TextChanged += new System.EventHandler(this.priceTB_TextChanged);
+            this.priceTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTB_KeyPress);
             // 
             // AddForm
             // 

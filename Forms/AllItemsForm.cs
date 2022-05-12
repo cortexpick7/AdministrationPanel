@@ -66,14 +66,20 @@ namespace AdministrationPanel.Forms
 
     private void button1_Click(object sender, EventArgs e)
         {
+
             dataGridView1.DataSource = dbConn.dbGet(getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
             if (dataGridView1.Rows.Count == 0)
             {
                 label1.Visible = true;
+
             }
             else
             {
                 label1.Visible = false;
+                dataGridView1.Columns[0].HeaderText = "Name";
+                dataGridView1.Columns[1].HeaderText = "Quantity";
+                dataGridView1.Columns[2].HeaderText = "Price";
+                dataGridView1.Columns[3].HeaderText = "Category";
             }
         }
 
@@ -89,6 +95,14 @@ namespace AdministrationPanel.Forms
             trackBar1.Value = -1;
             textBox1.Text = "";
             isZero.Checked = false;
+            dataGridView1.Columns[0].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[1].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[2].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[0].HeaderText = "Name";
+            dataGridView1.Columns[1].HeaderText = "Quantity";
+            dataGridView1.Columns[2].HeaderText = "Price";
+            dataGridView1.Columns[3].HeaderText = "Category";
             if (dataGridView1.Rows.Count == 0)
             {
                 label1.Visible = true;
@@ -114,6 +128,14 @@ namespace AdministrationPanel.Forms
         {
             name = textBox1.Text;
             dataGridView1.DataSource = dbConn.dbGet(getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
+            dataGridView1.Columns[0].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[1].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[2].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[0].HeaderText = "Name";
+            dataGridView1.Columns[1].HeaderText = "Quantity";
+            dataGridView1.Columns[2].HeaderText = "Price";
+            dataGridView1.Columns[3].HeaderText = "Category";
         }
     }
 }
