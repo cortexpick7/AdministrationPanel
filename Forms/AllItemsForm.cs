@@ -23,24 +23,40 @@ namespace AdministrationPanel.Forms
         {
             InitializeComponent();
         }
-        
+
         private void AllItemsForm_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dbConn.dbCommunication("connect", getItems.getItems("All", -1, ""));
-            dataGridView1.Columns[0].HeaderText = "ID";
-            dataGridView1.Columns[1].HeaderText = "Name";
-            dataGridView1.Columns[2].HeaderText = "Quantity";
-            dataGridView1.Columns[3].HeaderText = "Price";
-            dataGridView1.Columns[4].HeaderText = "Category";
-            dbConn.dbCommunication("disconnect", null);
+            
+            if (isZero.Checked == true)
+            {
+                quantity = 0;
+            }
+            else
+            {
+                quantity = -1;
+            }
 
-
-            DataTable categoriesTable = dbConn.dbCommunication("connect", "select categoryname from category");
+            dataGridView1.DataSource = dbConn.dbGet(getItems.getItems("All", -1, ""));
+            dataGridView1.Columns[0].HeaderText = "Name";
+            dataGridView1.Columns[1].HeaderText = "Quantity";
+            dataGridView1.Columns[2].HeaderText = "Price";
+            dataGridView1.Columns[3].HeaderText = "Category";
+            dataGridView1.Columns[0].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[1].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[2].DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
+            if (dataGridView1.Rows.Count == 0)
+            {
+                label1.Visible = true;
+            } else
+            {
+                label1.Visible = false;
+            }
+            DataTable categoriesTable = dbConn.dbGet("select categoryname from category");
             for (int i = 0; i < categoriesTable.Rows.Count; i++)
             {
                 filterCategory.Items.Add(categoriesTable.Rows[i]["categoryname"].ToString());
             }
-            dbConn.dbCommunication("disconnect", null);
             filterCategory.Text = "All";
 
         }
@@ -50,9 +66,15 @@ namespace AdministrationPanel.Forms
 
     private void button1_Click(object sender, EventArgs e)
         {
-            dbConn.dbCommunication("disconnect", null);
-            dataGridView1.DataSource = dbConn.dbCommunication("connect", getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
-            dbConn.dbCommunication("disconnect", null);
+            dataGridView1.DataSource = dbConn.dbGet(getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
+            if (dataGridView1.Rows.Count == 0)
+            {
+                label1.Visible = true;
+            }
+            else
+            {
+                label1.Visible = false;
+            }
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -62,10 +84,19 @@ namespace AdministrationPanel.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // getItems("All", -1, "");
+            dataGridView1.DataSource = dbConn.dbGet(getItems.getItems("All", -1, ""));
             filterCategory.Text = "All";
             trackBar1.Value = -1;
             textBox1.Text = "";
+            isZero.Checked = false;
+            if (dataGridView1.Rows.Count == 0)
+            {
+                label1.Visible = true;
+            }
+            else
+            {
+                label1.Visible = false;
+            }
         }
 
         private void isZero_CheckedChanged(object sender, EventArgs e)
@@ -82,6 +113,7 @@ namespace AdministrationPanel.Forms
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             name = textBox1.Text;
+            dataGridView1.DataSource = dbConn.dbGet(getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
         }
     }
 }
