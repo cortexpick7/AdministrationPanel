@@ -111,6 +111,8 @@
     <Compile Include="Forms\StatisticsForm.Designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods\ConnectToDatabase.cs" />
+    <Compile Include="Methods\GetItems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form1.resx">

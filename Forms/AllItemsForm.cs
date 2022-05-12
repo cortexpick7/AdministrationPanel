@@ -8,95 +8,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AdministrationPanel.Methods;
 
 namespace AdministrationPanel.Forms
 {
     public partial class AllItemsForm : Form
     {
+        GetItems getItems = new GetItems();
+        ConnectToDatabase dbConn = new ConnectToDatabase();
+        int quantity = 0;
+        string name = "";
+
         public AllItemsForm()
         {
             InitializeComponent();
         }
-        NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=ProductDatabase;User Id=postgres;Password=1234");
+        
         private void AllItemsForm_Load(object sender, EventArgs e)
         {
-            getItems("All", 10000, "");
-            getCategories();
-            filterCategory.Text = "All";
-        }
-        private void getItems(string category, int quantity, string name)
-        {
-            conn.Open();
-            NpgsqlCommand comm = new NpgsqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select * from product";
-            if (quantity != -1 || name != "" || category != "All")
-            {
-                comm.CommandText += " WHERE";
-            }
-            if (name != "")
-            {
-                comm.CommandText += " productname LIKE '" + name + "%'";
-            }
-            if (quantity != -1 && name != "")
-            {
-                comm.CommandText += " AND productquantity < " + quantity;
-            }
-            else if (quantity != -1 && name == "")
-            {
-                comm.CommandText += " productquantity < " + quantity;
-            }
-            if (category != "All" && (quantity != -1 || name != ""))
-            {
-                comm.CommandText += " AND productcategory ='" + category + "'";
-            }
-            else if (category != "All" && !(quantity != -1 || name != ""))
-            {
-                comm.CommandText += " productcategory='" + category +"'";
-            }
-            label1.Text = comm.CommandText;
-            NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.HasRows)
-            {
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                dataGridView1.DataSource = dt;
-            }
+            dataGridView1.DataSource = dbConn.dbCommunication("connect", getItems.getItems("All", -1, ""));
             dataGridView1.Columns[0].HeaderText = "ID";
             dataGridView1.Columns[1].HeaderText = "Name";
             dataGridView1.Columns[2].HeaderText = "Quantity";
             dataGridView1.Columns[3].HeaderText = "Price";
             dataGridView1.Columns[4].HeaderText = "Category";
-            comm.Dispose();
-            conn.Close();
-        }
+            dbConn.dbCommunication("disconnect", null);
 
-        private void getCategories()
-        {
-            conn.Open();
-            NpgsqlCommand comm = new NpgsqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select categoryname from category";
-            NpgsqlDataReader dr = comm.ExecuteReader();
-            if (dr.HasRows)
+
+            DataTable categoriesTable = dbConn.dbCommunication("connect", "select categoryname from category");
+            for (int i = 0; i < categoriesTable.Rows.Count; i++)
             {
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-
-                for (int i=0; i <dt.Rows.Count; i++)
-                {
-                    filterCategory.Items.Add(dt.Rows[i]["categoryname"].ToString());
-                }
+                filterCategory.Items.Add(categoriesTable.Rows[i]["categoryname"].ToString());
             }
-            comm.Dispose();
-            conn.Close();
-        }
+            dbConn.dbCommunication("disconnect", null);
+            filterCategory.Text = "All";
 
-        private void button1_Click(object sender, EventArgs e)
+        }
+        
+
+                        
+
+    private void button1_Click(object sender, EventArgs e)
         {
-            getItems(filterCategory.Text, trackBar1.Value, textBox1.Text);
+            dbConn.dbCommunication("disconnect", null);
+            dataGridView1.DataSource = dbConn.dbCommunication("connect", getItems.getItems(filterCategory.Text, quantity, textBox1.Text));
+            dbConn.dbCommunication("disconnect", null);
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -106,10 +62,26 @@ namespace AdministrationPanel.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            getItems("All", 10000, "");
+           // getItems("All", -1, "");
             filterCategory.Text = "All";
             trackBar1.Value = -1;
             textBox1.Text = "";
+        }
+
+        private void isZero_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isZero.Checked == true)
+            {
+                quantity = 0;
+            } else
+            {
+                quantity = -1;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            name = textBox1.Text;
         }
     }
 }
