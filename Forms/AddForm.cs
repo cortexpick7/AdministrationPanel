@@ -30,8 +30,10 @@ namespace AdministrationPanel.Forms
 
         private void categories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            checkIfReadyToAdd();
-
+            if (checkIfReadyToAdd() == true)
+            {
+                createButton.Enabled = true;
+            }
             if (categories.SelectedItem == "Add new...")
             {
                 categories.DropDownStyle = ComboBoxStyle.DropDown;
@@ -87,11 +89,26 @@ namespace AdministrationPanel.Forms
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            if (dbConn.dbCheckCategoryExistence(categories.SelectedItem.ToString()) == false)
+            string category;
+            if (categories.SelectedItem != null)
             {
-                dbConn.dbAddCategory(categories.SelectedItem.ToString());
-            };
-            dbConn.dbAddProduct(productNameTB.Text, Convert.ToInt32(quantityTB.Text), float.Parse(priceTB.Text), categories.SelectedItem.ToString());
+                category = categories.SelectedItem.ToString();
+                label5.Text = categories.SelectedItem.ToString();
+                if (dbConn.dbCheckCategoryExistence(category.ToLower()) == false)
+                {
+                    dbConn.dbAddCategory(category);
+                };
+                dbConn.dbAddProduct(productNameTB.Text, Convert.ToInt32(quantityTB.Text), float.Parse(priceTB.Text), categories.SelectedItem.ToString());
+            } else
+            {
+                category = categories.Text;
+                label5.Text = categories.Text;
+                if (dbConn.dbCheckCategoryExistence(category.ToLower()) == false)
+                {
+                    dbConn.dbAddCategory(category);
+                };
+                dbConn.dbAddProduct(productNameTB.Text, Convert.ToInt32(quantityTB.Text), float.Parse(priceTB.Text), categories.Text);
+            }
             productNameTB.Text = null;
             quantityTB.Text = null;
             priceTB.Text = null;

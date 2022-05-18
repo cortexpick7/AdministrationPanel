@@ -53,10 +53,10 @@ namespace AdministrationPanel.Methods
         }
         public bool dbCheckCategoryExistence(string category)
         {
-            DataTable catNames = dbGet("select LOWER(categoryname) from category");
+            DataTable catNames = dbGet("select * from category");
             for (int i = 0; i < catNames.Rows.Count; i++)
             {
-                if ((catNames.Rows[i].ToString().ToLower() == category.ToLower()))
+                if (catNames.Rows[i]["categoryname"].ToString().ToLower() == category)
                 {
                     return true;
                 }
